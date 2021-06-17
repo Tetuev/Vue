@@ -24,7 +24,12 @@ export default {
      },
      methods:{
          getVisitors(){
-              axios.get('http://localhost:3000/visitors')
+                  const params = {
+                      select: "id,name,mobile,date,status,access",
+                      //name:"gt.B",
+                      
+                    };
+              axios.get('http://localhost:3000/visitors',{ params })
               .then((response) => {
                    console.log(response.data)
                    this.visitors = response.data
